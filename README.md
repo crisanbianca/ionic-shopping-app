@@ -1,6 +1,7 @@
 MOBILE SHOPPING APP
 
 Description: 
+
 -an shopping app for a naturist pharmacy
 -list of products
 -a product has:
