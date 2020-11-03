@@ -230,3 +230,17 @@ http://ionicframework.com/docs/theming/ */
     --ion-card-background: #1e1e1e;
   }
 }
+
+.save {
+  color:#1f6f3f;
+}
+
+
+.label {
+  color:#1f6f3f;
+}
+
+.add {
+  --background: #1f6f3f;
+}
+
