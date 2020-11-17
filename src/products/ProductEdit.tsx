@@ -1,7 +1,7 @@
 import {RouteComponentProps} from "react-router";
-import {Product} from "./Product";
+import {ItemProps} from "./ProductProps";
 import React, {useContext, useEffect, useState} from "react";
-import {ItemContext} from "./ItemProvider";
+import {ItemContext} from "./ProductProvider";
 import {
     IonButton,
     IonButtons,
@@ -25,11 +25,11 @@ const ItemEdit: React.FC<ItemEditProps> = ({history, match}) => {
     const [description, setDescription] = useState('');
     const [expiration_date, setExpirationDate] = useState('');
     const [available, setAvailable] = useState('');
-    const [item, setItems] = useState<Product>();
+    const [item, setItems] = useState<ItemProps>();
 
     useEffect(() => {
        const routeId = match.params.id || '';
-       const item = items?.find(it => it.id == routeId);
+       const item = items?.find(it => it._id == routeId);
        setItems(item);
        if (item){
            setName(item.name);
