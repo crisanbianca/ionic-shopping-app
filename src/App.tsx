@@ -23,17 +23,16 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
-import { ItemProvider } from "./products/ProductProvider";
+import { ProductProvider } from "./products/ProductProvider";
 import { AuthProvider, Login, PrivateRoute } from "./auth";
 
 const App: React.FC = () => (
   <IonApp>
-    <ItemProvider>
       <IonReactRouter>
         <IonRouterOutlet>
           <AuthProvider>
             <Route path="/login" component={Login} exact={true} />
-            <ItemProvider>
+            <ProductProvider>
               <PrivateRoute path="/items" component={ItemList} exact={true} />
               <PrivateRoute path="/item" component={ItemEdit} exact={true} />
               <PrivateRoute
@@ -41,12 +40,11 @@ const App: React.FC = () => (
                 component={ItemEdit}
                 exact={true}
               />
-            </ItemProvider>
+            </ProductProvider>
             <Route exact path="/" render={() => <Redirect to="/items" />} />
           </AuthProvider>
         </IonRouterOutlet>
       </IonReactRouter>
-    </ItemProvider>
   </IonApp>
 );
 

@@ -4,7 +4,7 @@ import { baseUrl, config, withLogs } from '../core';
 const authUrl = `http://${baseUrl}/api/auth/login`;
 
 export interface AuthProps {
-  token: string;
+  token: string
 }
 
 export const login: (username?: string, password?: string) => Promise<AuthProps> = (username, password) => {

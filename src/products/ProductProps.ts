@@ -3,5 +3,10 @@ export interface ItemProps {
   name: string;
   description: string;
   expiration_date : string;
-  available: string;
+  available: boolean;
+  status: number;
+  version: number;
+  photoPath: string;
+  latitude:number;
+  longitude:number;
 }
