@@ -17,6 +17,7 @@ import {
   IonSelect,
   IonSelectOption,
   IonSearchbar,
+  createAnimation,
 } from "@ionic/react";
 import { add } from "ionicons/icons";
 import Item from "./Product";
@@ -79,6 +80,23 @@ const ProductList: React.FC<RouteComponentProps> = ({ history }) => {
       setItemsShow(items.filter((product) => product.name.startsWith(search)));
     }
   }, [search, items]);
+  useEffect(() => {
+
+    async function basicAnimation() {
+        const element = document.getElementsByClassName("buttonAdd");
+        if (element) {
+            const animation = createAnimation()
+                .addElement(element[0])
+                .duration(3000)
+                .iterations(1)
+                .fromTo('transform', 'translateX(300px)', 'translateX(0px)')
+                .fromTo('opacity', '0', '1.5');
+
+            animation.play();
+        }
+    }
+    basicAnimation();
+  }, []);
   return (
     <IonPage>
       <IonHeader>
@@ -135,7 +153,7 @@ const ProductList: React.FC<RouteComponentProps> = ({ history }) => {
           <div>{fetchingError.message || "Failed to fetch items"}</div>
         )}
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
-          <IonFabButton onClick={() => history.push("/item")}>
+          <IonFabButton  class="buttonAdd" onClick={() => history.push("/item")}>
             <IonIcon icon={add} />
           </IonFabButton>
         </IonFab>
